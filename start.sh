@@ -12,6 +12,8 @@ mkdir -p /var/run/sshd
 mv /var/lib/mysql /var/lib/mysql-tmp
 ln -s /srv/gogs/data/mysql /var/lib/mysql
 
+ln -s /src/gogs/data/git /home/git
+
 # start mysql
 mysqld_safe &
 

@@ -15,9 +15,9 @@ RUN echo mysql-server mysql-server/root_password password $MYSQLTMPROOT | debcon
 RUN adduser --disabled-login --gecos 'gogits' git
 
 # Install Git
-RUN add-apt-repository -y ppa:git-core/ppa;\
-  apt-get update;\
-  apt-get -y install git curl tar
+#RUN add-apt-repository -y ppa:git-core/ppa;\
+#  apt-get update;\
+RUN apt-get -y install git wget tar
 
 # Install Go
 RUN mkdir -p /goproj
@@ -26,7 +26,7 @@ ENV GOROOT /usr/local/go
 ENV GOPATH /goproj
 ENV GOBIN /home/git/gogs
 
-RUN curl -s http://golang.org/dl/go1.3.src.tar.gz | tar -v -C /usr/local -xz
+RUN wget http://golang.org/dl/go1.3.src.tar.gz -O- | tar -v -C /usr/local -xz
 RUN cd /usr/local/go/src && ./make.bash --no-clean 2>&1
 
 # Install Gogs
