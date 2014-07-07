@@ -17,7 +17,7 @@ RUN adduser --disabled-login --gecos 'gogits' git
 # Install Git
 RUN add-apt-repository -y ppa:git-core/ppa;\
   apt-get update;\
-  apt-get -y install git
+  apt-get -y install git curl tar
 
 # Install Go
 RUN mkdir -p /goproj
