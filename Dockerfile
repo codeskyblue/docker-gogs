@@ -33,7 +33,7 @@ RUN cd /usr/local/go/src && ./make.bash --no-clean 2>&1
 
 # Install Gogs
 RUN go get -d github.com/gogits/gogs
-RUN cd /goproj/src/github.com/gogigs/gogs; \
+RUN cd /goproj/src/github.com/gogits/gogs; \
   git checkout -b v0.4.2;\
   go get -v
 
