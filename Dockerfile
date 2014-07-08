@@ -32,11 +32,14 @@ RUN wget -q http://golang.org/dl/go1.3.src.tar.gz -O- | tar -C /usr/local -xz
 RUN cd /usr/local/go/src && ./make.bash --no-clean 2>&1
 
 # Install Gogs
-RUN cd /home/git;\
-  su git -c "git clone https://github.com/gogits/gogs.git -b v0.4.2";\
-  cd gogs; go get -v;\
-  cp /goproj/bin/gogs .;\
-  echo "clone ok"
+RUN go get -d github.com/gogits/gogs
+RUN cd /goproj/src/github.com/gogigs/gogs; \
+  git checkout -b v0.4.2;\
+  go get -v
+
+RUN cp -r /goproj/src/github.com/gogits/gogs /home/git;\
+  cp /goproj/bin/gogs /home/git/gogs/;\
+  chown -R git:git /home/git/gogs;
   
 EXPOSE 22
 EXPOSE 3000
