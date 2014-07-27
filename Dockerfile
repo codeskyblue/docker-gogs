@@ -12,7 +12,7 @@ RUN go build -tags sqlite
 ADD . /gopath/src/github.com/gogits/gogs
 
 # set the env to prod
-ENV MARTINI_ENV production
+#ENV MARTINI_ENV production
 
 CMD []
 ENTRYPOINT ["./gogs", "web"]
