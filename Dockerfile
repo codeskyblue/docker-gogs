@@ -206,7 +206,7 @@ ENV LOG_LEVEL Info
 ENV LOG_CONSOLE_LEVEL Info
 
 # run-as git
-RUN adduser --disabled-login --gecos 'gogits' git
+RUN su -c "useradd --disabled-login --gecos 'gogits' git"
 USER git
 
 EXPOSE 22 3000
