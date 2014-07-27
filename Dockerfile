@@ -205,6 +205,8 @@ ENV LOG_LEVEL Info
 ### log.console
 ENV LOG_CONSOLE_LEVEL Info
 
+# run-as git
+USER git
 EXPOSE 22 3000
 CMD []
 ENTRYPOINT ["./start.sh"]
