@@ -206,7 +206,7 @@ ENV LOG_LEVEL Info
 ENV LOG_CONSOLE_LEVEL Info
 
 # run-as git and own everything
-RUN su -c "useradd --no-create-home --system --comment 'gogits' git" \
+RUN su -c "useradd --create-home --home-dir /gopath/src/github.com/gogits --system --comment 'gogits' git" \
     && chown -R git:git .
 
 USER git
