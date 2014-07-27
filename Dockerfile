@@ -206,7 +206,7 @@ ENV LOG_LEVEL Info
 ENV LOG_CONSOLE_LEVEL Info
 
 # run-as git and own everything
-RUN apt-get install -y openssh-server && \
+RUN apt-get install -y openssh-server envsubst && \
     su -c "useradd --system --comment gogits git " && \
     mkdir -p /home/git ./ssh && \
     ln -s ./ssh /home/git/.ssh && \
