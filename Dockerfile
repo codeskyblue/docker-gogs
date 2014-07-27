@@ -31,7 +31,7 @@ RUN cp -r /goproj/src/github.com/gogits/gogs /home/git;\
 EXPOSE 22
 EXPOSE 3000
 
-ADD . /srv/gogs
-RUN chmod +x /srv/gogs/start.sh
+ADD . /app
+RUN chmod +x /app/start.sh
 
-CMD ["/srv/gogs/start.sh"]
+CMD ["/app/start.sh"]
