@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cat template.ini | envsubst > app.ini
+envsubst < template.ini > app.ini
 
 ./gogs web
