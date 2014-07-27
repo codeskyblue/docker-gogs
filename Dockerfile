@@ -215,6 +215,8 @@ RUN apt-get install -y openssh-server && \
 
 USER git
 
+ENV HOME /home/git
+
 EXPOSE 22 3000
 CMD []
 ENTRYPOINT ["./start.sh"]
