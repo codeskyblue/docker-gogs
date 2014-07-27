@@ -205,8 +205,8 @@ ENV LOG_LEVEL Info
 ### log.console
 ENV LOG_CONSOLE_LEVEL Info
 
-# run-as git and own everything
-RUN apt-get install -y openssh-server envsubst && \
+# run-as git and own everything (gettext-base has envsubst)
+RUN apt-get install -y openssh-server gettext-base && \
     su -c "useradd --system --comment gogits git " && \
     mkdir -p /home/git ./ssh && \
     ln -s ./ssh /home/git/.ssh && \
