@@ -210,7 +210,7 @@ RUN apt-get install -y openssh-server && \
     su -c "useradd --system --comment gogits git " && \
     mkdir -p /home/git ./ssh && \
     ln -s ./ssh /home/git/.ssh && \
-    chmod -R 0700 .ssh && \
+    chmod -R 0700 ./ssh && \
     chown -R git:git .
 
 USER git
