@@ -14,5 +14,6 @@ ADD . /gopath/src/github.com/gogits/gogs
 # set the env to prod
 #ENV MARTINI_ENV production
 
+EXPOSE 22 3000
 CMD []
 ENTRYPOINT ["./gogs", "web"]
