@@ -206,8 +206,12 @@ ENV LOG_LEVEL Info
 ENV LOG_CONSOLE_LEVEL Info
 
 # run-as git and own everything
-RUN su -c "useradd --create-home --home-dir /gopath/src/github.com/gogits --system --comment 'gogits' git" \
-    && chown -R git:git .
+RUN apt-get install -y openssh-server && \
+    su -c "useradd --system --comment gogits git " && \
+    mkdir -p /home/git ./ssh && \
+    ln -s ./ssh /home/git/.ssh && \
+    chmod -R 0700 .ssh && \
+    chown -R git:git .
 
 USER git
 
