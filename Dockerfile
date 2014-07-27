@@ -10,7 +10,7 @@ RUN apt-get -y install git mercurial wget curl tar openssh-server zip ca-certifi
 RUN adduser --disabled-login --gecos 'gogits' git
 
 # Install Go
-RUN mkdir -p /goproj
+RUN mkdir -p /goproj /app
 ENV PATH /usr/local/go/bin:/goproj/bin:$PATH
 ENV GOROOT /usr/local/go
 ENV GOPATH /goproj
