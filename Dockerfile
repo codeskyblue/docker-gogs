@@ -7,7 +7,7 @@ RUN git clone https://github.com/gogits/gogs.git /gopath/src/github.com/gogits/g
 # set the working directory and add current stuff
 WORKDIR /gopath/src/github.com/gogits/gogs
 RUN git checkout v0.4.2
-RUN go get -tags sqlite
+RUN go build -tags sqlite
 ADD . /gopath/src/github.com/gogits/gogs
 
 # set the env to prod
