@@ -206,7 +206,9 @@ ENV LOG_LEVEL Info
 ENV LOG_CONSOLE_LEVEL Info
 
 # run-as git
+RUN adduser --disabled-login --gecos 'gogits' git
 USER git
+
 EXPOSE 22 3000
 CMD []
 ENTRYPOINT ["./start.sh"]
