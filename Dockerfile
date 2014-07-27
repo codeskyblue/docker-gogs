@@ -1,8 +1,8 @@
 FROM google/golang
 
 # grab but do not build gogs
-mkdir -p /gopath/src/github.com/gogits
-git clone https://github.com/gogits/gogs.git /gopath/src/github.com/gogits/gogs
+RUN mkdir -p /gopath/src/github.com/gogits
+RUN git clone https://github.com/gogits/gogs.git /gopath/src/github.com/gogits/gogs
 
 # set the working directory and add current stuff
 WORKDIR /gopath/src/github.com/gogits/gogs
