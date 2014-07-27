@@ -1,19 +1,13 @@
-FROM ubuntu:12.04
+FROM ubuntu:13.10
 MAINTAINER ciarand <code@ciarand.me>
 
 RUN apt-get update
 
 # Install dependencies
-RUN apt-get install -y openssh-server
+RUN apt-get -y install git mercurial wget curl tar openssh-server zip ca-certificates build-essential
 
 # Create Git user
 RUN adduser --disabled-login --gecos 'gogits' git
-
-# Install Git
-RUN apt-get -y install git wget tar
-
-# Clean all the unused packages
-RUN apt-get autoremove -y
 
 # Install Go
 RUN mkdir -p /goproj
