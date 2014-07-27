@@ -13,4 +13,4 @@ ADD . /gopath/src/github.com/gogits/gogs
 #RUN gopm install && go install -tags sqlite
 
 CMD []
-ENTRYPOINT ["/gopath/bin/gogs"]
+ENTRYPOINT ["/gopath/bin/gogs", "web"]
