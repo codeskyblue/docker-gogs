@@ -22,14 +22,14 @@ ENV RUN_USER git
 ENV RUN_MODE dev
 
 ### repository
-ENV REPOSITORY_ROOT
+# ENV REPOSITORY_ROOT
 ENV REPOSITORY_SCRIPT_TYPE bash
 
 ### server
 ENV SERVER_PROTOCOL http
 ENV SERVER_DOMAIN localhost
 ENV SERVER_ROOT_URL %(PROTOCOL)s://%(DOMAIN)s:%(HTTP_PORT)s/
-ENV SERVER_HTTP_ADDR
+# ENV SERVER_HTTP_ADDR
 ENV SERVER_HTTP_PORT 3000
 ENV SERVER_SSH_PORT 22
 ENV SERVER_OFFLINE_MODE false
@@ -41,14 +41,14 @@ ENV SERVER_CERT_FILE custom/https/cert.pem
 ENV SERVER_KEY_FILE custom/https/key.pem
 # Upper level of template and static file path
 # default is the path where Gogs is executed
-ENV SERVER_STATIC_ROOT_PATH
+# ENV SERVER_STATIC_ROOT_PATH
 
 # database
 ENV DATABASE_DB_TYPE sqlite3
 ENV DATABASE_HOST 127.0.0.1:3306
 ENV DATABASE_NAME gogs
 ENV DATABASE_USER root
-ENV DATABASE_PASSWD
+# ENV DATABASE_PASSWD
 # For "postgres" only, either "disable", "require" or "verify-full"
 ENV DATABASE_SSL_MODE disable
 # For "sqlite3" only
@@ -58,8 +58,6 @@ ENV DATABASE_PATH data/gogs.db
 
 # security
 ENV SECURITY_INSTALL_LOCK false
-# !!CHANGE THIS TO KEEP YOUR USER DATA SAFE!!
-ENV SECURITY_SECRET_KEY !#@FDEWREWR&*(
 # Auto-login remember days
 ENV SECURITY_LOGIN_REMEMBER_DAYS 7
 ENV SECURITY_COOKIE_USERNAME gogs_awesome
@@ -98,39 +96,39 @@ ENV MAILER_SUBJECT %(APP_NAME)s
 # Mail server
 # Gmail: smtp.gmail.com:587
 # QQ: smtp.qq.com:25
-ENV MAILER_HOST
+#ENV MAILER_HOST
 # Mail from address
-ENV MAILER_FROM
+#ENV MAILER_FROM
 # Mailer user name and password
-ENV MAILER_USER
-ENV MAILER_PASSWD
+#ENV MAILER_USER
+#ENV MAILER_PASSWD
 
 # oauth
 ENV OAUTH_ENABLED
 
 # oauth.github
 ENV OAUTH_GITHUB_ENABLED false
-ENV OAUTH_GITHUB_CLIENT_ID
-ENV OAUTH_GITHUB_CLIENT_SECRET
-ENV OAUTH_GITHUB_SCOPES https://api_github_com/user
-ENV OAUTH_GITHUB_AUTH_URL https://github_com/login/oauth/authorize
-ENV OAUTH_GITHUB_TOKEN_URL https://github_com/login/oauth/access_token
+#ENV OAUTH_GITHUB_CLIENT_ID
+#ENV OAUTH_GITHUB_CLIENT_SECRET
+#ENV OAUTH_GITHUB_SCOPES https://api_github_com/user
+#ENV OAUTH_GITHUB_AUTH_URL https://github_com/login/oauth/authorize
+#ENV OAUTH_GITHUB_TOKEN_URL https://github_com/login/oauth/access_token
 
 # Get client id and secret from
 # https://console.developers.google.com/project
 # oauth.google
-ENV OAUTH_GITHUB_ENABLED false
-ENV OAUTH_GITHUB_CLIENT_ID
-ENV OAUTH_GITHUB_CLIENT_SECRET
-ENV OAUTH_GITHUB_SCOPES https://www_googleapis_com/auth/userinfo_email https://www_googleapis_com/auth/userinfo_profile
-ENV OAUTH_GITHUB_AUTH_URL https://accounts_google_com/o/oauth2/auth
-ENV OAUTH_GITHUB_TOKEN_URL https://accounts_google_com/o/oauth2/token
+ENV OAUTH_GOOGLE_ENABLED false
+#ENV OAUTH_GOOGLE_CLIENT_ID
+#ENV OAUTH_GOOGLE_CLIENT_SECRET
+#ENV OAUTH_GOOGLE_SCOPES https://www_googleapis_com/auth/userinfo_email https://www_googleapis_com/auth/userinfo_profile
+#ENV OAUTH_GOOGLE_AUTH_URL https://accounts_google_com/o/oauth2/auth
+#ENV OAUTH_GOOGLE_TOKEN_URL https://accounts_google_com/o/oauth2/token
 
 # oauth.qq
 ENV OAUTH_QQ_ENABLED false
-ENV OAUTH_QQ_CLIENT_ID
-ENV OAUTH_QQ_CLIENT_SECRET
-ENV OAUTH_QQ_SCOPES all
+#ENV OAUTH_QQ_CLIENT_ID
+#ENV OAUTH_QQ_CLIENT_SECRET
+#ENV OAUTH_QQ_SCOPES all
 # QQ 互联
 # AUTH_URL = https://graph.qq.com/oauth2.0/authorize
 # TOKEN_URL = https://graph.qq.com/oauth2.0/token
@@ -140,19 +138,19 @@ ENV OAUTH_QQ_TOKEN_URL https://open_t_qq_com/cgi-bin/oauth2/access_token
 
 # oauth.twitter
 ENV OAUTH_TWITTER_ENABLED false
-ENV OAUTH_TWITTER_CLIENT_ID
-ENV OAUTH_TWITTER_CLIENT_SECRET
-ENV OAUTH_TWITTER_SCOPES all
-ENV OAUTH_TWITTER_AUTH_URL https://api_twitter_com/oauth/authorize
-ENV OAUTH_TWITTER_TOKEN_URL https://api_twitter_com/oauth/access_token
+#ENV OAUTH_TWITTER_CLIENT_ID
+#ENV OAUTH_TWITTER_CLIENT_SECRET
+#ENV OAUTH_TWITTER_SCOPES all
+#ENV OAUTH_TWITTER_AUTH_URL https://api_twitter_com/oauth/authorize
+#ENV OAUTH_TWITTER_TOKEN_URL https://api_twitter_com/oauth/access_token
 
 # oauth.weibo
 ENV OAUTH_WEIBO_ENABLED false
-ENV OAUTH_WEIBO_CLIENT_ID
-ENV OAUTH_WEIBO_CLIENT_SECRET
-ENV OAUTH_WEIBO_SCOPES all
-ENV OAUTH_WEIBO_AUTH_URL https://api_weibo_com/oauth2/authorize
-ENV OAUTH_WEIBO_TOKEN_URL https://api_weibo_com/oauth2/access_token
+#ENV OAUTH_WEIBO_CLIENT_ID
+#ENV OAUTH_WEIBO_CLIENT_SECRET
+#ENV OAUTH_WEIBO_SCOPES all
+#ENV OAUTH_WEIBO_AUTH_URL https://api_weibo_com/oauth2/authorize
+#ENV OAUTH_WEIBO_TOKEN_URL https://api_weibo_com/oauth2/access_token
 
 # cache
 # Either "memory", "redis", or "memcache", default is "memory"
@@ -162,7 +160,7 @@ ENV CACHE_INTERVAL 60
 # For "redis" and "memcache", connection host address
 # redis: ":6039"
 # memcache: "127.0.0.1:11211"
-ENV CACHE_HOST
+# ENV CACHE_HOST
 
 # session
 # Either "memory", "file", "redis" or "mysql", default is "memory"
@@ -174,7 +172,7 @@ ENV SESSION_PROVIDER file
 # mysql: go-sql-driver/mysql dsn config string, e.g. "root:password@/session_table"
 ENV SESSION_PROVIDER_CONFIG data/sessions
 # Session cookie name
-ENV SESSION_COOKIE_NAME i_like_gogits
+ENV SESSION_COOKIE_NAME surge_gogs
 # If you use session in https only, default is false
 ENV SESSION_COOKIE_SECURE false
 # Enable set cookie, default is true
@@ -186,7 +184,7 @@ ENV SESSION_SESSION_LIFE_TIME 86400
 # session id hash func, Either "sha1", "sha256" or "md5" default is sha1
 ENV SESSION_SESSION_ID_HASHFUNC sha1
 # Session hash key, default is use random string
-ENV SESSION_SESSION_ID_HASHKEY
+#ENV SESSION_SESSION_ID_HASHKEY
 
 # picture
 # The place to picture data, either "server" or "qiniu", default is "server"
@@ -194,66 +192,18 @@ ENV PICTURE_SERVICE server
 ENV PICTURE_DISABLE_GRAVATAR false
 
 # log
-ENV LOG_ROOT_PATH
+ENV LOG_ROOT_PATH .
 # Either "console", "file", "conn", "smtp" or "database", default is "console"
 # Use comma to separate multiple modes, e.g. "console, file"
 ENV LOG_MODE console
 # Buffer length of channel, keep it as it is if you don't know what it is.
 ENV LOG_BUFFER_LEN 10000
 # Either "Trace", "Debug", "Info", "Warn", "Error", "Critical", default is "Trace"
-ENV LOG_LEVEL Trace
+ENV LOG_LEVEL Info
 
 # For "console" mode only
 ### log.console
-ENV LOG_CONSOLE_LEVEL
-
-# For "file" mode only
-### log.file
-ENV LOG_FILE_LEVEL
-ENV LOG_FILE_FILE_NAME log/gogs_log
-# This enables automated log rotate(switch of following options), default is true
-ENV LOG_FILE_LOG_ROTATE true
-# Max line number of single file, default is 1000000
-ENV LOG_FILE_MAX_LINES 1000000
-# Max size shift of single file, default is 28 means 1 << 28, 256MB
-ENV LOG_FILE_MAX_SIZE_SHIFT 28
-# Segment log daily, default is true
-ENV LOG_FILE_DAILY_ROTATE true
-# Expired days of log file(delete after max days), default is 7
-ENV LOG_FILE_MAX_DAYS 7
-
-# For "conn" mode only
-### log.conn
-ENV LOG_CONN_LEVEL
-# Reconnect host for every single message, default is false
-ENV LOG_CONN_RECONNECT_ON_MSG false
-# Try to reconnect when connection is lost, default is false
-ENV LOG_CONN_RECONNECT false
-# Either "tcp", "unix" or "udp", default is "tcp"
-ENV LOG_CONN_PROTOCOL tcp
-# Host address
-ENV LOG_CONN_ADDR
-
-# For "smtp" mode only
-### log.smtp
-ENV LOG_SMTP_LEVEL
-# Name displayed in mail title, default is "Diagnostic message from serve"
-ENV LOG_SMTP_SUBJECT Diagnostic message from serve
-# Mail server
-ENV LOG_SMTP_HOST
-# Mailer user name and password
-ENV LOG_SMTP_USER
-PASSWD LOG_SMTP_=
-# Receivers, can be one or more, e.g. ["1@example.com","2@example.com"]
-ENV LOG_SMTP_RECEIVERS
-
-# For "database" mode only
-### log.database
-ENV LOG_DATABASE_LEVEL
-# Either "mysql" or "postgres"
-ENV LOG_DATABASE_DRIVER
-# Based on xorm, e.g.: root:root@localhost/gogs?charset=utf8
-ENV LOG_DATABASE_CONN
+ENV LOG_CONSOLE_LEVEL Info
 
 EXPOSE 22 3000
 CMD []
