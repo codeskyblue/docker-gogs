@@ -205,8 +205,10 @@ ENV LOG_LEVEL Info
 ### log.console
 ENV LOG_CONSOLE_LEVEL Info
 
-# run-as git
-RUN su -c "useradd --no-create-home --system --comment 'gogits' git"
+# run-as git and own everything
+RUN su -c "useradd --no-create-home --system --comment 'gogits' git" \
+    && chown -r git:git .
+
 USER git
 
 EXPOSE 22 3000
