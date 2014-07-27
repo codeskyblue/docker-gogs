@@ -14,4 +14,4 @@ ADD . /gopath/src/github.com/gogits/gogs
 ENV MARTINI_ENV production
 
 CMD []
-ENTRYPOINT ["/gopath/bin/gogs", "web"]
+ENTRYPOINT ["./gogs", "web"]
