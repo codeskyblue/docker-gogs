@@ -11,12 +11,14 @@ WORKDIR /gopath/src/github.com/gogits/gogs
 RUN git checkout master
 RUN go get -v -tags sqlite
 RUN go build -tags sqlite
-ADD . /gopath/src/github.com/gogits/gogs
 
 RUN useradd --system --comment gogits git
 
 # prepare data
 ENV GOGS_CUSTOM /data/gogs
+
+RUN apt-get install -y rsync
+ADD . /gopath/src/github.com/gogits/gogs
 
 EXPOSE 22 3000
 ENTRYPOINT []

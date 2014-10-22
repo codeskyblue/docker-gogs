@@ -3,11 +3,19 @@
 
 service ssh start
 
-test -d /data/gogs || mkdir -p /var/run/sshd && \
-	mkdir -p /data/gogs/data /data/gogs/conf /data/gogs/log /data/git && \
-	ln -s /data/gogs/log ./log && \
-	ln -s /data/gogs/data ./data && \
-	ln -s /data/git /home/git && \
-	chown -R git:git /data .
+if ! test -d /data/gogs
+then	
+	mkdir -p /var/run/sshd
+	mkdir -p /data/gogs/data /data/gogs/conf /data/gogs/log /data/git
+fi
 
-su git -c "./gogs web"
+test -d /data/gogs/templates || cp -ar ./templates /data/gogs/
+
+ln -sf /data/gogs/log ./log
+ln -sf /data/gogs/data ./data
+ln -sf /data/git /home/git
+
+rsync -rtv /data/gogs/templates/ ./templates/
+
+chown -R git:git /data .
+exec su git -c "./gogs web"
