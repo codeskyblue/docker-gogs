@@ -3,16 +3,14 @@ docker-gogs
 
 docker file for gogits
 
-still testing
-
 ```
-git pull codeskyblue/docker-gogs
-git clone https://github.com/codeskyblue/docker-gogs.git
-cd docker-gogs
-docker run -P -d -p 10022:22 -p 13000:3000 -v data:/srv/gogs/data codeskyblue:docker-gogs
+git pull codeskyblue/docker-gogs:latest
+
+mkdir /var/gogs
+docker run --rm -p 22:22 -p 80:3000 -v /var/gogs:/data codeskyblue:docker-gogs
 ```
 
-mysql setting
-
-1. username: root
-2. password: toor
+If need to run background
+```
+docker run -d --rm -p 22:22 -p 80:3000 -v /var/gogs:/data codeskyblue@docker-gogs
+```
