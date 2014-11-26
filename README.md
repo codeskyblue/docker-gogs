@@ -22,6 +22,7 @@ http://youhost:3000
 
 It's ok to change /var/gogs to other directory.
 
+This docker is using sqlite
 ## Test
 ssh(port 22) is not passed test yet. So git clone git@.. not supported.
 
