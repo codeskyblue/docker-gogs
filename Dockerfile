@@ -18,6 +18,7 @@ RUN mkdir /var/run/sshd
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 RUN echo "export VISIBLE=now" >> /etc/profile
+RUN echo "PermitUserEnvironment yes" >> /etc/ssh/sshd_config
 
 # prepare data
 ENV GOGS_CUSTOM /data/gogs
