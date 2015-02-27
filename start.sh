@@ -20,7 +20,7 @@ rsync -rtv /data/gogs/templates/ ./templates/
 if ! test -d ~git/.ssh
 then
   mkdir ~git/.ssh
-  chmod 600 ~git/.ssh
+  chmod 700 ~git/.ssh
 fi
 
 if ! test -f ~git/.ssh/environment
