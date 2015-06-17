@@ -1,7 +1,9 @@
 FROM google/golang
 MAINTAINER codeskyblue@gmail.com
 
-RUN apt-get install -y openssh-server
+RUN echo "deb http://ftp.debian.org/debian/ wheezy-backports main" >> /etc/apt/sources.list \
+    && apt-get update \
+    && apt-get install -y -t wheezy-backports openssh-server
 
 # grab but do not build gogs
 RUN git clone https://github.com/gogits/gogs.git /gopath/src/github.com/gogits/gogs
