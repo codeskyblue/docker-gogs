@@ -15,8 +15,8 @@ then
 	ssh-keygen -q -f /data/ssh/ssh_host_dsa_key -N '' -t dsa
 	ssh-keygen -q -f /data/ssh/ssh_host_ecdsa_key -N '' -t ecdsa
 	ssh-keygen -q -f /data/ssh/ssh_host_ed25519_key -N '' -t ed25519
-	su -c chown -R root:root /data/ssh/*
-	su -c chmod 600 /data/ssh/*
+	chown -R root:root /data/ssh/*
+	chmod 600 /data/ssh/*
 fi
 
 service ssh start
