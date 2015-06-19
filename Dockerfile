@@ -23,6 +23,14 @@ RUN sed 's@UsePrivilegeSeparation yes@UsePrivilegeSeparation no@' -i /etc/ssh/ss
 RUN echo "export VISIBLE=now" >> /etc/profile
 RUN echo "PermitUserEnvironment yes" >> /etc/ssh/sshd_config
 
+# create new server keys on startup
+RUN sed 's@^HostKey@\#HostKey@' -i /etc/ssh/sshd_config
+RUN echo "HostKey /data/ssh/ssh_host_key" >> /etc/ssh/sshd_config
+RUN echo "HostKey /data/ssh/ssh_host_rsa_key" >> /etc/ssh/sshd_config
+RUN echo "HostKey /data/ssh/ssh_host_dsa_key" >> /etc/ssh/sshd_config
+RUN echo "HostKey /data/ssh/ssh_host_ecdsa_key" >> /etc/ssh/sshd_config
+RUN echo "HostKey /data/ssh/ssh_host_ed25519_key" >> /etc/ssh/sshd_config
+
 # prepare data
 ENV GOGS_CUSTOM /data/gogs
 RUN echo "export GOGS_CUSTOM=/data/gogs" >> /etc/profile
