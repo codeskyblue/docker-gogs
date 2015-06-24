@@ -26,6 +26,8 @@ Directory `/var/gogs` keeps git and gogs data
 	/var/gogs
 	├── git
 	│   └── gogs-repositories
+	|-- ssh
+	|    `-- # ssh pub-pri keys for gogs
 	└── gogs
 		├── conf
 		├── data
