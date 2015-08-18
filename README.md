@@ -3,6 +3,10 @@ docker-gogs
 
 Dockerfile for [gogs](http://gogs.io) server(a self-hosted git service).
 
+>This repo have been combined into <https://github.com/gogits/gogs> in 2015-08-17.
+
+Since the offcial repo got too many issues. Issue about docker gogs can still submit here.
+
 ## Usage
 ```
 docker pull codeskyblue/docker-gogs
