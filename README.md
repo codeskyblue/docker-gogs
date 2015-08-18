@@ -9,64 +9,20 @@ Since the offcial repo got too many issues. Issue about docker gogs can still su
 
 ## Usage
 ```
-docker pull codeskyblue/docker-gogs
+docker pull gogs/gogs
 
 mkdir -p /var/gogs
-docker run --name=gogs -d -p 10022:22 -p 10080:3000 -v /var/gogs:/data codeskyblue/docker-gogs
+docker run --name=gogs -d -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs
 ```
 
-Open bowser and naviage to
-
-```
-http://yourhost:10080
-```
-
-ssh port listens on 10022
-
-It's ok to change `/var/gogs` to other directory.
-
-Directory `/var/gogs` keeps git and gogs data
-
-	/var/gogs
-	├── git
-	│   └── gogs-repositories
-	|-- ssh
-	|    `-- # ssh pub-pri keys for gogs
-	└── gogs
-		├── conf
-		├── data
-		├── log
-		└── templates
-
-Config file is in `gogs/conf/app.ini`
-
-If your store engine choose sqlite, then the data file is in `gogs/data/gogs.db`
-
-### Support ssh
-After finish the gogs install. Another step need to do to support **ssh**. (Wait the gogs offical update the install page)
-
-edit gogs/conf/app.ini
-
-Add `SSH_PORT = 10022` after `[server]`
-
-For example:
-
-```
-[server]
-DOMAIN = git.shengxiang.me
-HTTP_PORT = 3000
-ROOT_URL = http://git.shengxiang.me/
-SSH_PORT = 10022
-```
-
-Then restart gogs by run `docker restart gogs`
+More details can be found in <https://github.com/gogits/gogs/tree/master/docker>
 
 ### Link with mysql
 mysql is from <https://registry.hub.docker.com/_/mysql/>.
 
 **Alert**. Not tested. For my machine got too low memory, and canot run mysql. 
 
-If you are interested to test. Pull request are welcome.
+If you are interested to test. Pull request are welcome. pr to <https://github.com/gogits/gogs> branch: develop
 
 First start an mysql instance
 
