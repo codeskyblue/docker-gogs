@@ -7,12 +7,12 @@ RUN echo "deb http://ftp.debian.org/debian/ wheezy-backports main" >> /etc/apt/s
 
 # grab but do not build gogs
 RUN git clone https://github.com/gogits/gogs.git /gopath/src/github.com/gogits/gogs
-
+ENV GOPATH=/gopath
 # set the working directory and add current stuff
 WORKDIR /gopath/src/github.com/gogits/gogs
-RUN git checkout master
-RUN go get -v -tags "sqlite redis memecache"
-RUN go build -tags "sqlite redis memecache"
+RUN git checkout v0.9.97
+RUN go get -v -tags "sqlite"
+RUN go build -tags "sqlite"
 
 RUN useradd --shell /bin/bash --system --comment gogits git
 
